@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>روزنامہ دی زیبا کامریڈ پاکستان</title>
+  <style>
+    body {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+    }
+    header {
+      background-color: #8a0303;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #e1dcdc;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+    }
+    .news {
+      background-color: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .reporter-verification {
+      background-color: #fff8e1;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    label, input, button {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    input {
+      padding: 10px;
+      width: 100%;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #8a0303;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #8a0303;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>روزنامہ دی زیبا کامریڈ پاکستان</h1>
+    <p>سرکاری آن لائن نیوز پورٹل</p>
+  </header>
+  <nav>
+    <a href="#">صفحۂ اول</a>
+    <a href="#">خبریں</a>
+    <a href="#">اداریہ</a>
+    <a href="#">رابطہ</a>
+    <a href="#verify">رپورٹر کی تصدیق</a>
+  </nav>
+  <div class="container">
+    <div class="news">
+      <h2>تازہ ترین خبر</h2>
+      <p>روزنامہ دی زیبا کامریڈ پاکستان نے نئی ویب سائٹ لانچ کر دی۔</p>
+    </div>
+    <div class="news">
+      <h2>سندھ سے خبریں</h2>
+      <p>سانگھڑ میں پریس کلب کے زیرِ اہتمام صحافتی کنونشن کا انعقاد ہوا۔</p>
+    </div>
+
+    <div class="reporter-verification" id="verify">
+      <h2>رپورٹر کی تصدیق</h2>
+      <p>برائے مہربانی نیچے اپنا قومی شناختی کارڈ نمبر درج کریں:</p>
+      <form onsubmit="verifyCNIC(event)">
+        <label for="cnic">شناختی کارڈ نمبر:</label>
+        <input type="text" id="cnic" name="cnic" placeholder="مثال: 12345-1234567-1" required>
+        <button type="submit">تصدیق کریں</button>
+      </form>
+      <div id="verificationResult"></div>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 دی زیبا کامریڈ پاکستان | CEO: سمیر احمد صدیقی
+  </footer>
+
+  <script>
+    function verifyCNIC(event) {
+      event.preventDefault();
+      const cnic = document.getElementById('cnic').value;
+      const result = document.getElementById('verificationResult');
+
+      if (cnic === \"12345-1234567-1\") {
+        result.innerHTML = `<p><strong>نام:</strong> احمد خان<br><strong>عہدہ:</strong> رپورٹر - کراچی<br><strong>منظوری:</strong> تصدیق شدہ</p>`;
+      } else {
+        result.innerHTML = `<p style=\"color: red;\">رپورٹر کا ریکارڈ نہیں ملا۔ براہ کرم درست CNIC درج کریں۔</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
